@@ -350,7 +350,9 @@ class GPAViewController: UIViewController {
         dataSet.setColor(UIColor(red:0.98, green:0.49, blue:0.41, alpha:1.00))
         lineChartView.data = LineChartData(dataSet: dataSet)
         lineChartView.zoomOut()
-        lineChartView.zoomToCenter(scaleX: 1.15, scaleY: 1)
+//        lineChartView.zoomToCenter(scaleX: 1.15, scaleY: 1)
+        // FIXME: make sure the scale
+        lineChartView.zoomToCenter(scaleX: 1.05, scaleY: 1)
     }
     
     func setupRadarChartView() {
@@ -377,10 +379,10 @@ class GPAViewController: UIViewController {
         radarChartView.data = data
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.isTranslucent = UINavigationBar.appearance().isTranslucent
         self.navigationController?.navigationBar.shadowImage = UINavigationBar.appearance().shadowImage
+        super.viewDidDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -430,7 +432,8 @@ extension GPAViewController: UITableViewDataSource {
         let classNameLabel = UILabel(text: `class`.name, color: UIColor(red:0.32, green:0.32, blue:0.32, alpha:1.00), fontSize: 14)
         let creditLabel = UILabel(text: "学分: \(`class`.credit)", color: UIColor(red:0.32, green:0.32, blue:0.32, alpha:1.00), fontSize: 14)
         let scoreLabel = UILabel(text: "成绩: \(`class`.score)", color: UIColor(red:0.32, green:0.32, blue:0.32, alpha:1.00), fontSize: 14)
-        classNameLabel.frame = CGRect(x: 20, y: 20, width: 200, height: 20)
+        classNameLabel.frame = CGRect(x: 20, y: 20, width: 300, height: 20)
+        classNameLabel.sizeToFit()
         creditLabel.frame = CGRect(x: 20, y: 60, width: 100, height: 20)
         scoreLabel.frame = CGRect(x: 120, y: 60, width: 200, height: 20)
         cell.contentView.addSubview(classNameLabel)

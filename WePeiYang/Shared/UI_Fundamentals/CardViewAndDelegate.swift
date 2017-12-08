@@ -27,7 +27,6 @@ public protocol CardViewDelegete: class, NSObjectProtocol {
 
 public class CardView: UIView {
     
-    
     //var foo: UITableViewDelegate
     
     func drawRect(rect: CGRect) {
@@ -35,12 +34,14 @@ public class CardView: UIView {
         // Set this property to true to optimize the rendering of the View
         // But when setting isOpaque = true, we need to draw every inch of the view with non-transparent elements
         isOpaque = true
-
         
     }
     
     convenience init() {
         self.init()
+        self.layer.cornerRadius = 10
+        self.layer.shadowOffset = CGSize(width: 5, height: 5)
+        self.layer.masksToBounds = false
     }
     
     

@@ -17,7 +17,6 @@ class CardViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitionin
     init(isPresenting: Bool, originalFrame: CGRect, card: CardView? = nil) {
         self.isPresenting = isPresenting
         self.originalFrame = originalFrame
-        self.originalFrame = card?.frame ?? originalFrame
         self.cardImage = card?.snapshot()
         super.init()
     }
@@ -39,7 +38,8 @@ class CardViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitionin
     }
     
     func push(from fromVC: UIViewController, to toVC: UIViewController, using transitionContext: UIViewControllerContextTransitioning) {
-        guard let toView = transitionContext.view(forKey: .to) else {
+        guard let toView = transitionContext.view(forKey: .to),
+            let fromView = transitionContext.view(forKey: .from) else {
             return
         }
         let imgView = UIImageView()
@@ -56,6 +56,7 @@ class CardViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitionin
 //            toView.alpha = 1.0
         }, completion: { isFinished in
 //            imgView.removeFromSuperview()
+            imgView.image = UIImage(color: .white)
         })
         
         UIView.animate(withDuration: velocity/2, delay: velocity/2, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {
@@ -70,13 +71,16 @@ class CardViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitionin
     }
 
     func pop(from fromVC: UIViewController, to toVC: UIViewController, using transitionContext: UIViewControllerContextTransitioning) {
-        guard let toView = transitionContext.view(forKey: .to) else {
-            return
+        guard let toView = transitionContext.view(forKey: .to),
+            let fromView = transitionContext.view(forKey: .from) else {
+                return
         }
+        transitionContext.containerView.backgroundColor = .white
         let imgView = UIImageView()
-        imgView.frame = toView.frame
-        imgView.image = cardImage
+        imgView.frame = fromView.frame
         imgView.alpha = 1
+        imgView.image = UIImage(color: .white)
+        
         //        toView.addSubview(imgView)
         //        toView.alpha = 0
         transitionContext.containerView.addSubview(imgView)
@@ -84,8 +88,10 @@ class CardViewTransitionAnimator: NSObject, UIViewControllerAnimatedTransitionin
         UIView.animate(withDuration: velocity/2, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.1, options: .curveEaseInOut, animations: {
             imgView.alpha = 1.0
             imgView.center = toView.center
+            imgView.frame.size = self.originalFrame.size
             //            toView.alpha = 1.0
         }, completion: { isFinished in
+            imgView.image = self.cardImage
             //            imgView.removeFromSuperview()
         })
         

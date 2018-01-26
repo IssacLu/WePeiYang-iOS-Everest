@@ -178,7 +178,7 @@ extension CardView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let superview = self.superview {
-            originalFrame = superview.convert(self.frame, to: nil)
+            originalFrame = self.convert(self.bounds, to: nil)
         }
         // TODO: tap animation
     }
@@ -205,9 +205,17 @@ extension CardView: UINavigationControllerDelegate {
     
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .push {
+            fromVC.tabBarController?.tabBar.frame.origin.y += 49
+        } else {
+//            fromVC.tabBarController?.tabBar.frame.origin.y += 49
+//            fromVC.tabBarController?.tabBar.frame.origin.x += fromVC.view.width
+//            fromVC.tabBarController?.tabBar.frame.origin.y -= 49
+        }
         let isPresenting = operation == .push ? true : false
+        let origFrame = operation == .push ? self.convert(self.bounds, to: nil) : originalFrame
 //        fromVC.tabBarController?.tabBar.isHidden = true
-        let animator = CardViewTransitionAnimator(isPresenting: isPresenting, originalFrame: originalFrame, card: self)
+        let animator = CardViewTransitionAnimator(isPresenting: isPresenting, originalFrame: origFrame, card: self)
         return animator
     }
 }

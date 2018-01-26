@@ -26,7 +26,7 @@ class WPYTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.isTranslucent = false
+//        tabBar.isTranslucent = false
         
         delegate = tabBarVCDelegate
         

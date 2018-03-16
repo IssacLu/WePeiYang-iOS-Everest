@@ -254,6 +254,8 @@
 		B181B95A1EC5C21700B8198E /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181B9571EC5C21700B8198E /* FavViewController.swift */; };
 		B181B95F1EC5C24000B8198E /* AllModulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B181B95D1EC5C24000B8198E /* AllModulesViewController.swift */; };
 		B19DABAA1E6EF5C2004A50B5 /* WePeiYangUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DABA91E6EF5C2004A50B5 /* WePeiYangUITests.swift */; };
+		DD14E544205C0460009F184A /* FoodReviewsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD14E543205C0460009F184A /* FoodReviewsMainViewController.swift */; };
+		DDA7FFAD205C161300F9B8CC /* DiningHallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA7FFAC205C161300F9B8CC /* DiningHallCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -550,6 +552,8 @@
 		B19DABA91E6EF5C2004A50B5 /* WePeiYangUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WePeiYangUITests.swift; sourceTree = "<group>"; };
 		B19DABAB1E6EF5C2004A50B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D77E7BD11F959EB50A5A0DED /* Pods-WePeiYangWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WePeiYangWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WePeiYangWidget/Pods-WePeiYangWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		DD14E543205C0460009F184A /* FoodReviewsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodReviewsMainViewController.swift; sourceTree = "<group>"; };
+		DDA7FFAC205C161300F9B8CC /* DiningHallCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiningHallCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1348,6 +1352,7 @@
 		B19DAB881E6EF5C2004A50B5 /* WePeiYang */ = {
 			isa = PBXGroup;
 			children = (
+				DD14E53F205C037F009F184A /* FoodReviews */,
 				36366B351FAC61B6001F72A0 /* WePeiYang.entitlements */,
 				B10254091EC8520A0064373A /* main */,
 				36F5BDCB1F9E16FB00CDDF74 /* LoginViewController.swift */,
@@ -1401,6 +1406,39 @@
 				6E48DF45006ADE8419C6CF0C /* Pods_WePeiYangWidget.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD14E53F205C037F009F184A /* FoodReviews */ = {
+			isa = PBXGroup;
+			children = (
+				DD14E542205C03C0009F184A /* Model */,
+				DD14E541205C03B5009F184A /* View */,
+				DD14E540205C039B009F184A /* Controller */,
+			);
+			path = FoodReviews;
+			sourceTree = "<group>";
+		};
+		DD14E540205C039B009F184A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD14E543205C0460009F184A /* FoodReviewsMainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD14E541205C03B5009F184A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDA7FFAC205C161300F9B8CC /* DiningHallCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD14E542205C03C0009F184A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1648,12 +1686,10 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-WePeiYang/Pods-WePeiYang-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
-				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/IGIdenticon/IGIdenticon.framework",
 				"${BUILT_PRODUCTS_DIR}/JBChartView/JBChartView.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
@@ -1664,12 +1700,10 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGIdenticon.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JBChartView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
@@ -1786,6 +1820,7 @@
 				364BDF6C1FDAD41100E61B65 /* CardViewTransitionAnimator.swift in Sources */,
 				36449E491FA4BA9B0036766B /* Applicant.swift in Sources */,
 				36449E441FA4BA9B0036766B /* TwentyCourseQuiz.swift in Sources */,
+				DDA7FFAD205C161300F9B8CC /* DiningHallCollectionViewCell.swift in Sources */,
 				B10254231EC8547E0064373A /* WPYTextField.swift in Sources */,
 				A5E117B91F99DCAE00C86CA2 /* Card.swift in Sources */,
 				A53602671FC6E36100E3D1AF /* LibraryBindingViewController.swift in Sources */,
@@ -1926,6 +1961,7 @@
 				A5E117BD1F99DCF300C86CA2 /* BicycleFitnessTrackerViewController.swift in Sources */,
 				B10253DB1EC84ED20064373A /* Recommender.swift in Sources */,
 				36073D071F223FC1001317A7 /* BookDetailViewControllerTempView.swift in Sources */,
+				DD14E544205C0460009F184A /* FoodReviewsMainViewController.swift in Sources */,
 				36449E8F1FA4BAD10036766B /* HandInDetailViewController.swift in Sources */,
 				A50F364C1FB5D81C00413CF2 /* NetworkReachability.swift in Sources */,
 				361F8862204AF94200BCFA19 /* NewsHeaderView.swift in Sources */,
